@@ -1,13 +1,13 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+import mongoose from 'mongoose';
 
+const { Schema } = mongoose;
 const Movie = new Schema(
-    {
-        name: { type: String},
-        time: { type: [String]},
-        rating: { type: Number },
-    },
-    { timestamps: true },
-)
+  {
+    name: { type: String},
+    time: { type: [String]},
+    rating: { type: Number },
+  },
+  { timestamps: true },
+);
 
-module.exports = mongoose.model('movies', Movie)
+export default mongoose.model('movies', Movie);

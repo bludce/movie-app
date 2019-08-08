@@ -1,13 +1,13 @@
-const express = require('express')
+import { Router } from 'express';
 
-const MovieCtrl = require('../controllers/movie-ctrl')
+import MovieController from '../controllers/movie-ctrl';
 
-const router = express.Router()
+const router = Router()
 
-router.post('/movie', MovieCtrl.createMovie)
-router.put('/movie/:id', MovieCtrl.updateMovie)
-router.delete('/movie/:id', MovieCtrl.deleteMovie)
-router.get('/movie/:id', MovieCtrl.getMovieById)
-router.get('/movies', MovieCtrl.getMovies)
+router.post('/movie', (req, res) => { MovieController.createMovie(req, res) })
+router.put('/movie/:id', (req, res) => { MovieController.updateMovie(req, res) })
+router.delete('/movie/:id', (req, res) => { MovieController.deleteMovie(req, res) })
+router.get('/movie/:id', (req, res) => { MovieController.getMovieById(req, res) })
+router.get('/movies', (req, res) => { MovieController.getMovies(req, res) })
 
-module.exports = router
+export default router
