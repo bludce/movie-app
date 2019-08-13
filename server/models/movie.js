@@ -11,23 +11,21 @@ const Movie = new Schema(
     vote_average: { type: Number },
     country: { type: String },
     backdropPhoto: { type: String},
-    video: {
-      id: {type: String },
+    video: { type: [{
       key: { type: String },
       value: {type: String }
-    },
+    }] },
     genres: { type: [{
-      id: { type: Number },
+      _id: { type: Number },
       name: { type: String },
     }] },
-    reviews: {
-      id: { type: String },
+    reviews: { type: [{
       userId: { type: String},
       userName: { type: String },
       avatar: { type: String },
       comment: { type: String },
       rating: { type: Number},
-    }
+    }]},
   },
   { timestamps: true },
 );

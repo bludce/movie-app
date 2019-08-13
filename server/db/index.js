@@ -1,6 +1,7 @@
 import { connect, connection } from 'mongoose';
+import getSecret from '../secrets';
 
-connect('mongodb://127.0.0.1:27017/cinema', { useNewUrlParser: true })
+connect( getSecret('dbUri'), { useNewUrlParser: true })
     .then(() => {
         console.log('Connection success')
     })

@@ -1,4 +1,4 @@
-import Movie from '../models/movie-model';
+import Movie from '../models/movie';
 
 const createMovie = (req, res) => {
   const body = req.body
@@ -54,9 +54,8 @@ const updateMovie = async (req, res) => {
       })
     }
 
-    movie.name = body.name
-    movie.time = body.time
-    movie.rating = body.rating
+    movie.reviews = body.reviews;
+
     movie
       .save()
       .then(() => {
@@ -113,13 +112,13 @@ const getMovieById = async (req, res) => {
         .status(404).json({ 
           success: false, 
           error: `Movie not found` })
-        }
+    }
 
-        return res.status(200).json({ 
-          success: true, 
-          data: movie 
-        })
+    return res.status(200).json({ 
+      success: true, 
+      data: movie 
     })
+  })
   .catch(err => console.log(err))
 }
 
