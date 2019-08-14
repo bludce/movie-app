@@ -23,7 +23,6 @@ const SessionSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['valid', 'expired'],
     default: 'valid',
   },
 });
