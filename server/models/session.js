@@ -42,7 +42,7 @@ SessionSchema.statics.generateToken = function() {
 };
 
 SessionSchema.statics.expireAllTokensForUser = function(userId) {
-  return this.updateMany({ userId }, { $set: { status: 'expired' } });
+  return mongoose.model('Session', SessionSchema).updateMany({ userId }, { $set: { status: 'expired' } });
 };
 
 SessionSchema.methods.expireToken = function() {

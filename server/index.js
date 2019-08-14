@@ -7,7 +7,7 @@ import movieRouter from './routes/movie';
 import userRouter from './routes/user';
 
 const app = express();
-const apiPort = process.env.PORT || 3001;
+const apiPort = process.env.PORT || 3000;
 
 app.use(urlencoded({ extended: true }));
 app.use(json());
