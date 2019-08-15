@@ -1,9 +1,14 @@
 import mongoose from 'mongoose';
+import uniqueValidator from 'mongoose-unique-validator';
+
 
 const { Schema } = mongoose;
-const Movie = new Schema(
+const MovieSchema = new Schema(
   {
-    title: { type: String },
+    title: { 
+      type: String,
+      required: true,
+    },
     poster: { type: String },
     overview: { type: String },
     release: { type: String },
@@ -30,4 +35,6 @@ const Movie = new Schema(
   { timestamps: true },
 );
 
-export default mongoose.model('movies', Movie);
+MovieSchema.plugin(uniqueValidator);
+
+export default mongoose.model('movies', MovieSchema);

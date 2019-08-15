@@ -36,7 +36,7 @@ const createMovie = (req, res) => {
     })
 }
 
-const updateMovie = async (req, res) => {
+const updateMovieReview = async (req, res) => {
   const body = req.body
 
   if (!body) {
@@ -74,12 +74,15 @@ const updateMovie = async (req, res) => {
     })
 }
 
-const deleteMovie = async (req, res) => {
-  await Movie.findOneAndDelete({ _id: req.params.id }, (err, movie) => {
+
+/*don't work*/ 
+const deleteMovieReviews = async (req, res) => {
+  await Movie.update({ _id: req.body.id }, (err, movie) => {
     if (err) {
       return res.status(400).json({ 
         success: false, 
-        error: err 
+        error: err,
+        Movie: movie,
       })
     }
 
@@ -92,7 +95,7 @@ const deleteMovie = async (req, res) => {
 
         return res.status(200).json({ 
           success: true, 
-          data: movie 
+          data: movie.reviews 
         })
     })
   .catch(err => console.log(err))
@@ -147,7 +150,7 @@ const getMovies = async (req, res) => {
 export default {
   getMovieById,
   getMovies,
-  deleteMovie,
+  deleteMovieReviews,
   createMovie,
-  updateMovie,
+  updateMovieReview,
 }

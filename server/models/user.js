@@ -15,6 +15,17 @@ const UserSchema = new mongoose.Schema({
     required: true,
     minlength: 8,
   },
+  name: {
+    type: String,
+  },
+  avatar: {
+    type: String,
+  },
+  films: [
+    {
+      id: String,
+    }
+  ]
 });
 
 UserSchema.plugin(uniqueValidator);
