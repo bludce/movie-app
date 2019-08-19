@@ -1,11 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
-class App extends Component {
-  render() {
-    return (
-      <h1>Hello world!!!</h1>
-    );
-  }
-}
+const App = ( ) => {
+  return (
+    <Fragment>
+      <Header></Header>
+      <Footer></Footer>
+    </Fragment>
+    
+  );
+};
 
 export default App;
