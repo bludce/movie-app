@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from "react";
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
+import LoginPage from "./components/loginPage/loginPage";
 
 const App = ( ) => {
   return (
     <Fragment>
-      <Header></Header>
-      <Footer></Footer>
+      <LoginPage />
     </Fragment>
     
   );
